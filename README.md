@@ -1,21 +1,70 @@
-# my-political-sim
+# 🇮🇳 Political Simulator
 
-यह रिपॉज़िटरी मोबाइल‑फर्स्ट राजनीतिक सिम्युलेटर के लिए स्केफोल्ड है।
+एक भारतीय राजनीतिक सिम्युलेशन गेम!
 
-इस प्रोजेक्ट में निम्न मुख्य हिस्से हैं:
+## 🎮 Game Features
 
-- simulation/parliament — लोकसभा/सरकार/कोआालिशन का core engine
-- simulation/election — निर्वाचन (constituency) इंजन
-- simulation/diplomacy — विश्व राजनीति, देश, क्षेत्र, युद्ध/संधि आदि
-- simulation/game — दोनों को जोड़ने वाला GameEngine
-- app/src/main/assets/countries.json — विश्व के देशों का प्रारम्भिक डेटा (195 देश जोड़े जाने हैं)
-- .github/workflows/android-build.yml — GitHub Actions workflow जो debug APK बनाता है
+- 🏛️ Parliament Simulation
+- 🗳️ Election System
+- 🌍 Diplomacy & Politics
+- 💾 Save/Load Game
+- 🎨 Beautiful UI
 
-अगर आप चाहें तो मैं अब feature/diplomacy-engine ब्रांच बना कर ऊपर की फाइलें जोड़ दूँगा और एक Pull Request बनाऊँगा।
+## 📥 Download APK
+
+**📱 Mobile में खोलो:**
+
+```
+https://github.com/mpandey1013/my-political-sim/releases
+```
+
+**या सीधे download करो:**
+
+```
+v1.0 Release → app-release.apk → Download
+```
+
+## 🛠️ Installation Steps
+
+### Step 1: APK Download करो
+```
+Releases section से latest version download करो
+```
+
+### Step 2: Security Settings ON करो
+```
+Settings → Security → Unknown Sources → Enable
+```
+
+### Step 3: Install करो
+```
+Files → Downloads → app-release.apk → Install
+```
+
+### Step 4: खेलो! 🎮
+```
+Installation complete → Open → Play!
+```
+
+## ⚙️ System Requirements
+
+| Requirement | Minimum |
+|------------|---------|
+| Android | 5.0+ |
+| RAM | 2GB |
+| Storage | 50MB |
+
+## 📞 Support
+
+- **Issues**: https://github.com/mpandey1013/my-political-sim/issues
+- **Discussions**: https://github.com/mpandey1013/my-political-sim/discussions
+
+## 📝 License
+
+MIT License
 
 ---
 
-Usage (mobile friendly):
-1) GitHub → Pull requests → open PR देखेँ और Merge karein.
-2) GitHub Actions tab → workflow run → artifact (APK) download karein aur mobile par install karein.
+**Made with ❤️ by Mei Pandey** 🇮🇳
 
+Last Updated: 2026-08-09
