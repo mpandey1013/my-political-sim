@@ -1,0 +1,56 @@
+name: Android Kotlin APK Build
+
+on:
+  push:
+    branches: [ "feature/diplomacy-engine" ]
+  pull_request:
+    branches: [ "feature/diplomacy-engine" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Specific Branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/diplomacy-engine
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'zulu'
+
+      - name: Locate Project, Grant Permissions and Build APK
+        run: |
+          echo "=== STEP 1: GRADLEW FILE KO DHOONDHNA ==="
+          GRADLEW_PATH=$(find . -name "gradlew" -print -quit)
+          
+          if [ -z "$GRADLEW_PATH" ]; then
+            echo "❌ ERROR: Poore GitHub me kahin bhi gradlew file nahi mili!"
+            echo "Aapki files ka asli structure niche dekhiye:"
+            ls -R
+            exit 1
+          fi
+          
+          PROJECT_DIR=$(dirname "$GRADLEW_PATH")
+          cd "$PROJECT_DIR"
+          echo "✅ Project Folder Mil Gaya: $PROJECT_DIR"
+          
+          echo "=== STEP 2: EXECUTE PERMISSION DENA ==="
+          chmod +x ./gradlew
+          
+          echo "=== STEP 3: APK BUILD SHURU KARNA ==="
+          ./gradlew assembleDebug --stacktrace
+          
+          echo "=== STEP 4: APK COPIED TO OUTPUT ==="
+          mkdir -p $GITHUB_WORKSPACE/output-apk
+          find . -name "*.apk" -exec cp {} $GITHUB_WORKSPACE/output-apk/ \;
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: output-apk/
+          
